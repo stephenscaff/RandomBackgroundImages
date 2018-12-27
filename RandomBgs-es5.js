@@ -17,6 +17,7 @@ var RandoBgs = (function() {
  return{
 
     init: function() {
+      if (!randomBgs.length > 0) return;
       this.bindEvents()
     },
 
@@ -57,8 +58,3 @@ var RandoBgs = (function() {
     }
   };
 })();
-
-// init if element exists
-if (document.querySelector('.js-rando-image')) {
-  RandoBgs.init();
-}

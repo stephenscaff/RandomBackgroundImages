@@ -17,6 +17,7 @@ const RandoBgs = (() => {
  return{
 
     init() {
+      if (!randomBgs.length > 0) return;
       this.bindEvents()
     },
 
@@ -30,7 +31,7 @@ const RandoBgs = (() => {
      */
     getImages() {
       Util.forEach ( randomBgs, function (index, randomBg) {
-        var images = JSON.parse(randomBg.dataset.images);
+        let images = JSON.parse(randomBg.dataset.images);
         randomImage = RandoBgs.getRandomImage(images);
 
         RandoBgs.setImage(randomBg, randomImage);
@@ -43,8 +44,8 @@ const RandoBgs = (() => {
      * @return {string} the image path
      */
     getRandomImage(imageArr) {
-      var randomize = Math.floor(Math.random()*imageArr.length);
-      var selectedImage = imageArr[randomize];
+      let randomize = Math.floor(Math.random()*imageArr.length);
+      let selectedImage = imageArr[randomize];
       return selectedImage;
     },
 
@@ -58,5 +59,5 @@ const RandoBgs = (() => {
   };
 })();
 
-
+// Export
 export default RandoBgs;
